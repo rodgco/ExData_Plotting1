@@ -12,6 +12,5 @@ downloadHPC <- function(dataFile) {
   classes <- sapply(temp, class)
   temp <- read.table(temporaryFile, na.string="?", sep=";", comment.char="", header=TRUE, colClasses = classes)
   temp <- temp[temp$Date=="1/2/2007" | temp$Date=="2/2/2007", ]
-  temp$Date_time <- strptime(paste(temp$Date, temp$Time), format = "%d/%m/%Y %H:%M:%S")
   write.table(temp, dataFile, sep=",", row.names=FALSE, quote=FALSE)
 }
